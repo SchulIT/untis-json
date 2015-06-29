@@ -1,7 +1,7 @@
 ﻿
 namespace UntisJson.Model
 {
-    public enum Vertretungsart
+    public enum SubstitutionType
     {
         Verlegt = 'T',
         VerlegtVon = 'F',

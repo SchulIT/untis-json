@@ -3,7 +3,7 @@
 namespace UntisJson.Model
 {
     [Flags]
-    public enum Art
+    public enum Type
     {
         Entfall = 1,
         Betreuung = 2,

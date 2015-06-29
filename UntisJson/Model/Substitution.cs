@@ -6,67 +6,70 @@ using UntisJson.Converter;
 namespace UntisJson.Model
 {
     [DelimitedRecord(";")]
-    public class Vertretung
+    public class Substitution
     {
-        public int? Vertretungsnummer;
+        public int? ID;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(DateTimeOffsetConverter))]
-        public DateTimeOffset? Datum;
+        public DateTimeOffset? Date;
 
-        public int? Stunde;
+        public int? Lession;
 
-        public int? Absenznummer;
+        [JsonIgnore]
+        public int? AbsenceNumber;
 
-        [JsonProperty("unterrichtsnummer")]
-        public int? Unterrichtsnummer;
-
-        [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string AbsenterLehrer;
+        [JsonIgnore]
+        public int? LessionNumber;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string VertretenderLehrer;
+        public string AbsenceTeacher;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Fach;
-
-        public string StatistikKennzeichenFach;
+        public string ReplacementTeacher;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Vertretungsfach;
+        public string Subject;
 
-        public string StatistikKennzeichenVertretungsfach;
-
-        [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Raum;
+        [JsonIgnore]
+        public string StatisticsTagForSubject;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Vertretungsraum;
+        public string ReplacementSubject;
 
-        public string StatistikKennzeichen;
-
-        [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(SeparatedValuesConverter))]
-        public string[] Klassen;
+        public string StatisticsTagForReplacementSubject;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Absenzgrund;
+        public string Rooms;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Text;
+        public string ReplacementRoom;
 
-        public int? Art;
+        [JsonIgnore]
+        public string StatisticsTag;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter))]
-        public string[] Vertretungsklassen;
+        public string[] Classes;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Vertretungsart;
+        public string AbsenceReason;
+
+        [FieldQuoted('"', QuoteMode.OptionalForRead)]
+        public string Description;
+
+        public int? Type;
+
+        [FieldQuoted('"', QuoteMode.OptionalForRead)]
+        [FieldConverter(typeof(SeparatedValuesConverter))]
+        public string[] ReplacementClasses;
+
+        [FieldQuoted('"', QuoteMode.OptionalForRead)]
+        public string ReplacementType;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(DateTimeOffsetConverter))]
-        public DateTimeOffset? LetzteAenderung;
+        public DateTimeOffset? LastChange;
 
         [JsonIgnore]
         public string Footer;
