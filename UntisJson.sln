@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UntisJson", "UntisJson\UntisJson.csproj", "{852CF0E2-5C7C-4AB5-901C-A41F6E379AB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UntisJson.Console", "UntisJson.Console\UntisJson.Console.csproj", "{BFB5F582-4163-4081-A4BE-B2DA3B414822}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{852CF0E2-5C7C-4AB5-901C-A41F6E379AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{852CF0E2-5C7C-4AB5-901C-A41F6E379AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{852CF0E2-5C7C-4AB5-901C-A41F6E379AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB5F582-4163-4081-A4BE-B2DA3B414822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB5F582-4163-4081-A4BE-B2DA3B414822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB5F582-4163-4081-A4BE-B2DA3B414822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB5F582-4163-4081-A4BE-B2DA3B414822}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

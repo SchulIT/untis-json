@@ -1,10 +1,7 @@
 ﻿using FileHelpers;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UntisJson.Model;
 
 namespace UntisJson
@@ -20,11 +17,18 @@ namespace UntisJson
             return result.AsEnumerable();
         }
 
-        public static string ParseSubstitutionsAsJson(string csv)
+        public static string ParseSubstitutionsAsJson(string csv, bool minify)
         {
             var substitutions = ParseSubstitutions(csv);
 
-            return JsonConvert.SerializeObject(substitutions);
+            var formatting = Formatting.None;
+
+            if (!minify)
+            {
+                formatting = Formatting.Indented;
+            }
+
+            return JsonConvert.SerializeObject(substitutions, formatting);
         }
 
         public static IEnumerable<Exam> ParseExam(string csv)
@@ -36,11 +40,18 @@ namespace UntisJson
             return result.AsEnumerable();
         }
 
-        public static string ParseExamAsJson(string csv)
+        public static string ParseExamAsJson(string csv, bool minify)
         {
             var exams = ParseExam(csv);
 
-            return JsonConvert.SerializeObject(exams);
+            var formatting = Formatting.None;
+
+            if (!minify)
+            {
+                formatting = Formatting.Indented;
+            }
+
+            return JsonConvert.SerializeObject(exams, formatting);
         }
     }
 }
