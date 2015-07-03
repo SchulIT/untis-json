@@ -14,7 +14,7 @@ namespace UntisJson.Model
         [FieldConverter(typeof(DateTimeOffsetConverter))]
         public DateTimeOffset? Date;
 
-        public int? Lession;
+        public int? Lesson;
 
         [JsonIgnore]
         public int? AbsenceNumber;
