@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>UntisJson</id>
+    <version>0.1.0</version>
+    <title>UntisJson</title>
+    <authors>Marcel Marnitz</authors>
+    <projectUrl>https://git.marcelmarnitz.com/frostie/untisjson/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Untis to JSON converter</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>untis json converter</tags>
+	
+	<dependencies>
+	  <dependency id="FileHelpers" version="2.0.0.0" />
+	  <dependency id="Newtonsoft.Json" version="7.0.1" />
+	</dependencies>
+  </metadata>
+  
+  <files>
+	<file src="..\UntisJson\bin\Release\UntisJson.*" target="lib\net45" />
+  </files>
+</package>
