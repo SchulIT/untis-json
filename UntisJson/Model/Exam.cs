@@ -18,12 +18,14 @@ namespace UntisJson.Model
         [FieldConverter(typeof(DateTimeOffsetConverter))]
         public DateTimeOffset Date;
 
-        public int LessionStart;
+        public int LessonStart;
 
-        public int LessionEnd;
+        public int LessonEnd;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Course;
+        [FieldConverter(typeof(SeparatedValuesConverter))]
+        [FieldTrim(TrimMode.Both)]
+        public string[] Courses;
 
         [JsonIgnore]
         public string CourseId;
