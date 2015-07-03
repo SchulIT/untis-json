@@ -23,7 +23,9 @@ namespace UntisJson.Model
         public int LessonEnd;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        public string Course;
+        [FieldConverter(typeof(SeparatedValuesConverter))]
+        [FieldTrim(TrimMode.Both)]
+        public string[] Courses;
 
         [JsonIgnore]
         public string CourseId;
