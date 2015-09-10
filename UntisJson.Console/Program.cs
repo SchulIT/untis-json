@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using UntisJson.Console.Parameters;
 
 namespace UntisJson.Console
@@ -33,7 +34,7 @@ namespace UntisJson.Console
                 System.Console.WriteLine(string.Format("reading file {0}", input));
             }
 
-            using (var reader = new StreamReader(input))
+            using (var reader = new StreamReader(input, Encoding.Default)) // Untis files are stored in ANSI format
             {
                 csv = reader.ReadToEnd();
             }
@@ -51,7 +52,26 @@ namespace UntisJson.Console
             }
             else if (options.Type == "exams")
             {
-                json = UntisJson.ParseExamAsJson(csv, options.Minify);
+                var inputClasses = Path.GetFullPath(options.InputClassFile);
+
+                var csvClasses = string.Empty;
+
+                if(options.Verbose)
+                {
+                    System.Console.WriteLine("reading class file...");
+                }
+
+                using (var reader = new StreamReader(inputClasses))
+                {
+                    csvClasses = reader.ReadToEnd();
+                }
+
+                if (options.Verbose)
+                {
+                    System.Console.WriteLine("parsing files...");
+                }
+
+                json = UntisJson.ParseExamAsJson(csv, csvClasses, options.Minify);
             }
             else
             {
@@ -81,6 +101,12 @@ namespace UntisJson.Console
             {
                 System.Console.WriteLine("Finished.");
             }
+        }
+
+        private static string ConvertToUtf8(string input, Encoding encoding)
+        {
+            var bytes = encoding.GetBytes(input);
+            return Encoding.UTF8.GetString(bytes);
         }
     }
 }

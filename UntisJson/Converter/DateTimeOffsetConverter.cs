@@ -7,6 +7,11 @@ namespace UntisJson.Converter
     {
         public override object StringToField(string from)
         {
+            if(from.Length < 8)
+            {
+                return null;
+            }
+
             var year = int.Parse(from.Substring(0, 4));
             var month = int.Parse(from.Substring(4, 2));
             var day = int.Parse(from.Substring(6, 2));

@@ -28,6 +28,7 @@ namespace UntisJson.Model
         public string[] Courses;
 
         [JsonIgnore]
+        [FieldQuoted('"', QuoteMode.OptionalForRead)]
         public string CourseId;
 
         [JsonIgnore]
@@ -43,5 +44,8 @@ namespace UntisJson.Model
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter), '-', true)]
         public string[] Rooms;
+
+        [FieldIgnored]
+        public string[] Classes;
     }
 }
