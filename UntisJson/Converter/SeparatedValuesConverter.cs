@@ -36,7 +36,7 @@ namespace UntisJson.Converter
                 entries = entries.Select(x => x.Trim());
             }
 
-            return entries.ToArray();
+            return entries.ToList();
         }
     }
 }

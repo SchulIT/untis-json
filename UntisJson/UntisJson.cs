@@ -37,8 +37,8 @@ namespace UntisJson
 
             var result = engine.ReadString(csvExams) as Exam[];
 
-            engine = new FileHelperEngine(typeof(Class));
-            var classes = engine.ReadString(csvClasses) as Class[];
+            engine = new FileHelperEngine(typeof(Lesson));
+            var classes = engine.ReadString(csvClasses) as Lesson[];
 
             foreach(var exam in result)
             {
@@ -46,7 +46,7 @@ namespace UntisJson
                 
                 if(_classes.Any())
                 {
-                    exam.Classes = _classes.Select(x => x.ClassName).Distinct().ToArray();
+                    exam.Classes = _classes.Select(x => x.ClassName).Distinct().ToList();
                 }
             }
 

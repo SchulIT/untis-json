@@ -3,7 +3,7 @@
 namespace UntisJson.Model
 {
     [DelimitedRecord(";")]
-    public class Class
+    public class Lesson
     {
         public int Number;
 
@@ -15,5 +15,12 @@ namespace UntisJson.Model
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         public string ClassName;
+
+        /**
+         * We must read the whole rest - otherwise
+         * the library will fail to read a row :/
+         */ 
+        [FieldArrayLength(0, 39)]
+        public string[] UnusedFields;
     }
 }

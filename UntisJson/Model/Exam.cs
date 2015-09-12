@@ -1,6 +1,7 @@
 ﻿using FileHelpers;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using UntisJson.Converter;
 
 namespace UntisJson.Model
@@ -25,7 +26,7 @@ namespace UntisJson.Model
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter))]
         [FieldTrim(TrimMode.Both)]
-        public string[] Courses;
+        public List<string> Courses;
 
         [JsonIgnore]
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
@@ -35,17 +36,17 @@ namespace UntisJson.Model
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter))]
         [FieldTrim(TrimMode.Both)]
-        public string[] Students;
+        public List<string> Students;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter), '-', true)]
-        public string[] Invigilators;
+        public List<string> Invigilators;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter), '-', true)]
-        public string[] Rooms;
+        public List<string> Rooms;
 
-        [FieldIgnored]
-        public string[] Classes;
+        [FieldHidden]
+        public List<string> Classes;
     }
 }
