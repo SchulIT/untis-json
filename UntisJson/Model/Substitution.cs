@@ -1,6 +1,7 @@
 ﻿using FileHelpers;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using UntisJson.Converter;
 
 namespace UntisJson.Model
@@ -50,7 +51,7 @@ namespace UntisJson.Model
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter))]
-        public string[] Classes;
+        public List<string> Classes;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         public string AbsenceReason;
@@ -62,7 +63,7 @@ namespace UntisJson.Model
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         [FieldConverter(typeof(SeparatedValuesConverter))]
-        public string[] ReplacementClasses;
+        public List<string> ReplacementClasses;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         public string ReplacementType;
