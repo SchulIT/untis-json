@@ -48,5 +48,8 @@ namespace UntisJson.Model
 
         [FieldHidden]
         public List<string> Classes;
+
+        [FieldHidden]
+        public List<string> Teachers;
     }
 }

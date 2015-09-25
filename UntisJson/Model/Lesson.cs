@@ -16,11 +16,17 @@ namespace UntisJson.Model
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         public string ClassName;
 
+        [FieldQuoted('"', QuoteMode.OptionalForRead)]
+        public string Teacher;
+
+        [FieldQuoted('"', QuoteMode.OptionalForRead)]
+        public string Subject;
+
         /**
          * We must read the whole rest - otherwise
          * the library will fail to read a row :/
-         */ 
-        [FieldArrayLength(0, 39)]
+         */
+        [FieldArrayLength(0, 37)]
         public string[] UnusedFields;
     }
 }
