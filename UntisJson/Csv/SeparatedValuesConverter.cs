@@ -1,7 +1,7 @@
 ﻿using FileHelpers;
 using System.Linq;
 
-namespace UntisJson.Converter
+namespace UntisJson.Csv
 {
     public class SeparatedValuesConverter : ConverterBase
     {

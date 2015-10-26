@@ -1,7 +1,7 @@
 ﻿using FileHelpers;
 using System;
 
-namespace UntisJson.Converter
+namespace UntisJson.Csv
 {
     public class DateTimeOffsetConverter : ConverterBase
     {

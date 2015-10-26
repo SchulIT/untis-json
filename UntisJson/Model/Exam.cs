@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using UntisJson.Converter;
 
 namespace UntisJson.Model
 {
@@ -16,7 +15,8 @@ namespace UntisJson.Model
 
         public string Description;
 
-        [FieldConverter(typeof(DateTimeOffsetConverter))]
+        [FieldConverter(typeof(Csv.DateTimeOffsetConverter))]
+        [JsonConverter(typeof(Json.DateTimeOffsetConverter))]
         public DateTimeOffset Date;
 
         public int LessonStart;
@@ -24,7 +24,7 @@ namespace UntisJson.Model
         public int LessonEnd;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(SeparatedValuesConverter))]
+        [FieldConverter(typeof(Csv.SeparatedValuesConverter))]
         [FieldTrim(TrimMode.Both)]
         public List<string> Courses;
 
@@ -34,16 +34,16 @@ namespace UntisJson.Model
 
         [JsonIgnore]
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(SeparatedValuesConverter))]
+        [FieldConverter(typeof(Csv.SeparatedValuesConverter))]
         [FieldTrim(TrimMode.Both)]
         public List<string> Students;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(SeparatedValuesConverter), '-', true)]
+        [FieldConverter(typeof(Csv.SeparatedValuesConverter), '-', true)]
         public List<string> Invigilators;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(SeparatedValuesConverter), '-', true)]
+        [FieldConverter(typeof(Csv.SeparatedValuesConverter), '-', true)]
         public List<string> Rooms;
 
         [FieldHidden]

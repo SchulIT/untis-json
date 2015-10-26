@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using UntisJson.Converter;
 
 namespace UntisJson.Model
 {
@@ -12,7 +11,8 @@ namespace UntisJson.Model
         public int? ID;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(DateTimeOffsetConverter))]
+        [FieldConverter(typeof(Csv.DateTimeOffsetConverter))]
+        [JsonConverter(typeof(Json.DateTimeOffsetConverter))]
         public DateTimeOffset? Date;
 
         public int? Lesson;
@@ -50,7 +50,7 @@ namespace UntisJson.Model
         public string StatisticsTag;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(SeparatedValuesConverter))]
+        [FieldConverter(typeof(Csv.SeparatedValuesConverter))]
         public List<string> Classes;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
@@ -62,14 +62,14 @@ namespace UntisJson.Model
         public int? Type;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(SeparatedValuesConverter))]
+        [FieldConverter(typeof(Csv.SeparatedValuesConverter))]
         public List<string> ReplacementClasses;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
         public string ReplacementType;
 
         [FieldQuoted('"', QuoteMode.OptionalForRead)]
-        [FieldConverter(typeof(DateTimeOffsetConverter))]
+        [FieldConverter(typeof(Csv.DateTimeOffsetConverter))]
         public DateTimeOffset? LastChange;
 
         [JsonIgnore]
