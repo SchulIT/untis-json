@@ -1,5 +1,6 @@
 ﻿using FileHelpers;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UntisJson.Model;
@@ -42,12 +43,11 @@ namespace UntisJson
 
             foreach(var exam in result)
             {
-                var _classes = classes.Where(x => x.Number.ToString() == exam.CourseId);
+                exam.Class = GetClassFromName(exam.Name);
                 
-                if(_classes.Any())
+                if(!string.IsNullOrEmpty(exam.Class))
                 {
-                    exam.Classes = _classes.Select(x => x.ClassName).Distinct().ToList();
-                    exam.Teachers = _classes.Where(x => !string.IsNullOrEmpty(x.Teacher) && exam.Courses.Contains(x.Subject)).Select(x => x.Teacher).Distinct().ToList();
+                    exam.Teachers = classes.Where(x => !string.IsNullOrEmpty(x.Teacher) && x.Number.ToString() == exam.CourseId && x.ClassName == exam.Class).Select(x => x.Teacher).Distinct().ToList();
                 }
             }
 
@@ -66,6 +66,43 @@ namespace UntisJson
             }
 
             return JsonConvert.SerializeObject(exams, formatting);
+        }
+
+        private static string GetClassFromName(string name)
+        {
+            int shortYear;
+
+            if (name.Length >= 3 && name.Substring(0, 1) == "A" && int.TryParse(name.Substring(1, 2), out shortYear))
+            {
+                var year = 2000 + shortYear;
+
+                var currentYear = DateTime.Today.Year;
+                var currentMonth = DateTime.Today.Month;
+
+                var diff = year - currentYear;
+
+                if (currentYear < 8)
+                {
+                    diff++;
+                }
+
+                switch (diff)
+                {
+                    case 1:
+                        return "Q2";
+
+                    case 2:
+                        return "Q1";
+
+                    case 3:
+                        return "EF";
+
+                    default:
+                        return null;
+                }
+            }
+
+            return null;
         }
     }
 }

@@ -47,7 +47,7 @@ namespace UntisJson.Model
         public List<string> Rooms;
 
         [FieldHidden]
-        public List<string> Classes;
+        public string Class;
 
         [FieldHidden]
         public List<string> Teachers;
