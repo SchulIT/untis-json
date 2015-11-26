@@ -47,7 +47,7 @@ namespace UntisJson
                 
                 if(!string.IsNullOrEmpty(exam.Class))
                 {
-                    exam.Teachers = classes.Where(x => !string.IsNullOrEmpty(x.Teacher) && x.Number.ToString() == exam.CourseId && x.ClassName == exam.Class).Select(x => x.Teacher).Distinct().ToList();
+                    exam.Teachers = classes.Where(x => !string.IsNullOrEmpty(x.Teacher) && x.Number.ToString() == exam.CourseId && x.ClassName == exam.Class && exam.Courses.Contains(x.Subject)).Select(x => x.Teacher).Distinct().ToList();
                 }
             }
 
