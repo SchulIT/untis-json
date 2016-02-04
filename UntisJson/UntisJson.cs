@@ -81,7 +81,7 @@ namespace UntisJson
 
                 var diff = year - currentYear;
 
-                if (currentYear < 8)
+                if (currentMonth < 8)
                 {
                     diff++;
                 }
