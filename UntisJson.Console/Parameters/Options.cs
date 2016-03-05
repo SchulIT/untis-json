@@ -8,9 +8,6 @@ namespace UntisJson.Console.Parameters
         [Option('i', "input", Required = true, HelpText = "Input file")]
         public string InputFile { get; set; }
 
-        [Option('c', "classes", Required = false, HelpText = "Input file (GPU002.TXT)")]
-        public string InputClassFile { get; set; }
-
         [Option('o', "output", Required = false, DefaultValue = null, HelpText = "Output file. If not specified, output will be printed to stdout")]
         public string OutputFile { get; set; }
 

@@ -32,31 +32,23 @@ namespace UntisJson
             return JsonConvert.SerializeObject(substitutions, formatting);
         }
 
-        public static IEnumerable<Exam> ParseExam(string csvExams, string csvClasses)
+        public static IEnumerable<Exam> ParseExam(string csvExams)
         {
             var engine = new FileHelperEngine(typeof(Exam));
 
             var result = engine.ReadString(csvExams) as Exam[];
 
-            engine = new FileHelperEngine(typeof(Lesson));
-            var classes = engine.ReadString(csvClasses) as Lesson[];
-
             foreach(var exam in result)
             {
                 exam.Class = GetClassFromName(exam.Name);
-                
-                if(!string.IsNullOrEmpty(exam.Class))
-                {
-                    exam.Teachers = classes.Where(x => !string.IsNullOrEmpty(x.Teacher) && x.Number.ToString() == exam.CourseId && x.ClassName == exam.Class && exam.Courses.Contains(x.Subject)).Select(x => x.Teacher).Distinct().ToList();
-                }
             }
 
             return result.AsEnumerable();
         }
 
-        public static string ParseExamAsJson(string csvExams, string csvClasses, bool minify)
+        public static string ParseExamAsJson(string csvExams, bool minify)
         {
-            var exams = ParseExam(csvExams, csvClasses);
+            var exams = ParseExam(csvExams);
 
             var formatting = Formatting.None;
 

@@ -52,26 +52,7 @@ namespace UntisJson.Console
             }
             else if (options.Type == "exams")
             {
-                var inputClasses = Path.GetFullPath(options.InputClassFile);
-
-                var csvClasses = string.Empty;
-
-                if(options.Verbose)
-                {
-                    System.Console.WriteLine("reading class file...");
-                }
-
-                using (var reader = new StreamReader(inputClasses))
-                {
-                    csvClasses = reader.ReadToEnd();
-                }
-
-                if (options.Verbose)
-                {
-                    System.Console.WriteLine("parsing files...");
-                }
-
-                json = UntisJson.ParseExamAsJson(csv, csvClasses, options.Minify);
+                json = UntisJson.ParseExamAsJson(csv, options.Minify);
             }
             else
             {

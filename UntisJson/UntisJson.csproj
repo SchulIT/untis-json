@@ -50,7 +50,6 @@
     <Compile Include="Csv\DateTimeOffsetConverter.cs" />
     <Compile Include="Csv\SeparatedValuesConverter.cs" />
     <Compile Include="Json\DateTimeOffsetConverter.cs" />
-    <Compile Include="Model\Lesson.cs" />
     <Compile Include="Model\Type.cs" />
     <Compile Include="Model\Exam.cs" />
     <Compile Include="Model\Substitution.cs" />
