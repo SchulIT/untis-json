@@ -20,6 +20,12 @@ namespace UntisJson.Console.Parameters
         [Option('m', "minify", Required = false, HelpText = "Indicates whether the resulting JSON string will be minified or not")]
         public bool Minify { get; set; }
 
+        [Option('e', "exclude0", Required = false, HelpText = "Flag whether to exclude Untis IDs 0")]
+        public bool ExcludeZero { get; set; }
+
+        [Option('u', "usethreshold", Required = false, HelpText = "Flag whether to exclude old items")]
+        public bool UseThreshold { get; set; }
+
         [HelpOption]
         public string GetUsage()
         {

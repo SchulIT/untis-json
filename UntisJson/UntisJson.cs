@@ -18,15 +18,26 @@ namespace UntisJson
             return result.AsEnumerable();
         }
 
-        public static string ParseSubstitutionsAsJson(string csv, bool minify)
+        public static string ParseSubstitutionsAsJson(string csv, Options options)
         {
             var substitutions = ParseSubstitutions(csv);
 
             var formatting = Formatting.None;
 
-            if (!minify)
+            if (!options.MinifyJson)
             {
                 formatting = Formatting.Indented;
+            }
+
+            if(options.ExcludeUntisIdZero)
+            {
+                substitutions = substitutions.Where(x => x.ID > 0);
+            }
+
+            if(options.DateThreshold.HasValue)
+            {
+                var threshold = options.DateThreshold.Value;
+                substitutions = substitutions.Where(x => x.Date >= threshold);
             }
 
             return JsonConvert.SerializeObject(substitutions, formatting);
@@ -46,15 +57,26 @@ namespace UntisJson
             return result.AsEnumerable();
         }
 
-        public static string ParseExamAsJson(string csvExams, bool minify)
+        public static string ParseExamAsJson(string csvExams, Options options)
         {
             var exams = ParseExam(csvExams);
 
             var formatting = Formatting.None;
 
-            if (!minify)
+            if (!options.MinifyJson)
             {
                 formatting = Formatting.Indented;
+            }
+
+            if (options.ExcludeUntisIdZero)
+            {
+                exams = exams.Where(x => x.ID > 0);
+            }
+
+            if (options.DateThreshold.HasValue)
+            {
+                var threshold = options.DateThreshold.Value;
+                exams = exams.Where(x => x.Date >= threshold);
             }
 
             return JsonConvert.SerializeObject(exams, formatting);

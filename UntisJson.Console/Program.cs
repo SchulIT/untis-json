@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
-using UntisJson.Console.Parameters;
 
 namespace UntisJson.Console
 {
@@ -8,7 +8,14 @@ namespace UntisJson.Console
     {
         static void Main(string[] args)
         {
-            var options = new Options();
+            var options = new Parameters.Options();
+            var parseOptions = new Options
+            {
+                MinifyJson = options.Minify,
+                ExcludeUntisIdZero = options.ExcludeZero,
+                DateThreshold = options.UseThreshold ? new DateTimeOffset(DateTime.Today, DateTimeOffset.Now.Offset) : null as DateTimeOffset?
+            };
+
             var parser = new CommandLine.Parser();
 
             if (!parser.ParseArguments(args, options))
@@ -48,11 +55,11 @@ namespace UntisJson.Console
 
             if (options.Type == "substitutions")
             {
-                json = UntisJson.ParseSubstitutionsAsJson(csv, options.Minify);
+                json = UntisJson.ParseSubstitutionsAsJson(csv, parseOptions);
             }
             else if (options.Type == "exams")
             {
-                json = UntisJson.ParseExamAsJson(csv, options.Minify);
+                json = UntisJson.ParseExamAsJson(csv, parseOptions);
             }
             else
             {
