@@ -9,13 +9,6 @@ namespace UntisJson.Console
         static void Main(string[] args)
         {
             var options = new Parameters.Options();
-            var parseOptions = new Options
-            {
-                MinifyJson = options.Minify,
-                ExcludeUntisIdZero = options.ExcludeZero,
-                DateThreshold = options.UseThreshold ? new DateTimeOffset(DateTime.Today, DateTimeOffset.Now.Offset) : null as DateTimeOffset?
-            };
-
             var parser = new CommandLine.Parser();
 
             if (!parser.ParseArguments(args, options))
@@ -24,6 +17,13 @@ namespace UntisJson.Console
                 System.Console.WriteLine(options.GetUsage());
                 System.Environment.Exit(1);
             }
+
+            var parseOptions = new Options
+            {
+                MinifyJson = options.Minify,
+                ExcludeUntisIdZero = options.ExcludeZero,
+                DateThreshold = options.UseThreshold ? new DateTimeOffset(DateTime.Today, DateTimeOffset.Now.Offset) : null as DateTimeOffset?
+            };
 
             var input = Path.GetFullPath(options.InputFile);
             var output = string.IsNullOrEmpty(options.OutputFile) ? null : Path.GetFullPath(options.OutputFile);
