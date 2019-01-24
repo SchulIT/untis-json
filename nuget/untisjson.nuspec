@@ -5,10 +5,10 @@
     <version>2.1.0</version>
     <title>UntisJson</title>
     <authors>Marcel Marnitz</authors>
-    <projectUrl>https://git.marcelmarnitz.com/frostie/untisjson/</projectUrl>
+    <projectUrl>https://github.com/SchulIT/untis-json</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Untis to JSON converter</description>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2019</copyright>
     <tags>untis json converter</tags>
 	
 	<dependencies>
