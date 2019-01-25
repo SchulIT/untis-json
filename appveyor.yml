@@ -5,7 +5,7 @@ image: Visual Studio 2017
 artifacts:
   - path: "nuget\\*.nupkg"
     name: nuget
-  - path: "UntisJson.Console\\bin\\Release\\gpo-to-json.exe"
+  - path: "UntisJson.Console\\bin\\Release\\untis-to-json.exe"
     name: exe
 
 install: 

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UntisJson.Console</RootNamespace>
     <AssemblyName>UntisJson.Console</AssemblyName>
-    <TargetName>gpo-to-json</TargetName>
+    <TargetName>untis-to-json</TargetName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
