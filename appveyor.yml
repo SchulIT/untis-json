@@ -1,4 +1,4 @@
-version: "{branch}"
+version: "{branch}-{build}"
 
 image: Visual Studio 2017
 
@@ -34,7 +34,7 @@ deploy:
       APPVEYOR_REPO_TAG: true
 
   - provider: GitHub
-    release: $(appveyor_build_version)
+    release: $(APPVEYOR_REPO_TAG_NAME)
     description: 'UntisJson Release'
     auth_token:
       secure: azxaxWtfK5LuSENJSnawf9JVCtyjlaPe9jXgjHt9Mt0gjl/IqTiKv26ZB034YQhc
