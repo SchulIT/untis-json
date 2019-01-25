@@ -29,7 +29,7 @@ deploy:
     api_key:
       secure: m/BZsZQssKrHAgtl+XEQ8j0mLr32jRvfar+4GgC39eRbXsOKWhvF+GEcuU53paNc
     skip_symbols: false
-    artifact: /*\.nupkg/
+    artifact: /.*\.nupkg/
     on:
       APPVEYOR_REPO_TAG: true
 
@@ -38,6 +38,6 @@ deploy:
     description: 'UntisJson Release'
     auth_token:
       secure: sMRP2nLdtaD7TmfOEHNrBYVQ030+IrC2APZmdguG45kvjLbvIJJYC8Y/ixsZw0VT
-    artifact: /*\.(exe|nuget)/
+    artifact: /.*\.(nupkg|exe)/
     on:
       APPVEYOR_REPO_TAG: true
