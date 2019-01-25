@@ -31,7 +31,6 @@ deploy:
     skip_symbols: false
     artifact: /*\.nupkg/
     on:
-      branch: master
       APPVEYOR_REPO_TAG: true
 
   - provider: GitHub
@@ -41,5 +40,4 @@ deploy:
       secure: sMRP2nLdtaD7TmfOEHNrBYVQ030+IrC2APZmdguG45kvjLbvIJJYC8Y/ixsZw0VT
     artifact: /*\.(exe|nuget)/
     on:
-      branch: master
       APPVEYOR_REPO_TAG: true
