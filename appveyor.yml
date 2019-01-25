@@ -13,6 +13,10 @@ install:
 
 build:
   project: UntisJson.sln
+
+after_build:
+  - cd nuget
+  - nuget pack UntisJson.nuspec
   
 configuration:
   - Release
