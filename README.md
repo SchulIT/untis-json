@@ -1,6 +1,7 @@
 # UntisJson
 Mithilfe von UntisJson lassen sich der Vertretungsplan sowie der Klausurplan aus dem Untis-GPO-Format in das menschen-leserliche (und weiterverarbeitbare) JSON-Format umgewandelt werden
 
+⚠ Die Bibliothek wird nicht mehr weiterentwickelt - bitte auf den Nachfolger [UntisExport](https://github.com/SchulIT/untisexport) ausweichen 
 
 ## Voraussetzungen
 
